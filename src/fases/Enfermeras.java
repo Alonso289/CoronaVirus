@@ -15,6 +15,7 @@ public class Enfermeras extends Persona implements Vacunable{
 	public void vacunar(Pacientes infectado) {
 		
 		infectado.setInfectado(false);
+		
 	}
 
 	

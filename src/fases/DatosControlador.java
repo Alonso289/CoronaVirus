@@ -13,7 +13,7 @@ public class DatosControlador {
 	        }
 
 	        return validar;
-	        }
+	 }
 	 
 	 //Obtiene la lista de usuarios si la validacion es correcta
 	 public static ArrayList<Persona> obtenerDatos(DatosDTO datos) throws SQLException {

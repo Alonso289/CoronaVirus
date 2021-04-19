@@ -4,13 +4,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import Hilos.InsertaDatosHilo;
 import Hilos.ObtieneDatosHilo;
 
 //Clase que contiene el main
 public class Principal {
 
+	public static Logger logger = LogManager.getLogger(Principal.class);
 	public static void main(String[] args) {
+						
+		String url = ".\\resources\\log4j.properties";
+		PropertyConfigurator.configure(url);
+		
 		
 		//Creamos el objeto con los datos y obtenemos la ciudad por teclado
 		DatosDTO datos = new DatosDTO();
@@ -37,6 +46,7 @@ public class Principal {
 					Pacientes paciente = new Pacientes(listaPersonas.get(i).getId(), listaPersonas.get(i).getId_ciudad(), listaPersonas.get(i).getNombre(), listaPersonas.get(i).getTipo(), listaPersonas.get(i).getInfectado());					
 					listaPacientes.add(paciente);
 				}
+				Principal.logger.info("Se han obtenido la lista enfemeras y la lista pacientes");
 			}
 			
 			Ciudad.listaPacientes = listaPacientes;
@@ -71,5 +81,6 @@ public class Principal {
 		}
 		
 		teclado.close();
+		Principal.logger.info("Programa finalizado");
 	}
 }

@@ -47,7 +47,7 @@ public class Ciudad {
 				listaInfectableAuxiliar.add(listaPacientes.get(i));
 		}
 		listaPacientes = listaInfectableAuxiliar;
-			
+		Principal.logger.info("Dia simulado realizado");	
 	}
 	
 }

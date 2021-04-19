@@ -9,12 +9,16 @@ package fases;
  *
  * @author Alonso289
  */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class Conexion {
     
+	private static Logger logger = LogManager.getLogger(Conexion.class);
 	static String bd = "prueba_serbatic";
 	static String login = "root";
 	static String password = "";
@@ -29,6 +33,7 @@ public class Conexion {
 	    if (conexion == null) {
 	    	crearConexion();
                 System.out.println("Conexion creada");
+                logger.info("Conexion creada");
 	    }
 	    return conexion;
     }
@@ -56,9 +61,11 @@ public class Conexion {
             conexion.close();
             conexion = null;
             System.out.println("\nLa conexion a la  base de datos " + bd + " ha terminado");
+            logger.info("La conexion a la  base de datos " + bd + " ha terminado");
     	
     	} catch (SQLException e) {
     		System.out.println("Error al cerrar la conexion");
+    		logger.error("Error al cerrar la conexion");
         }
     }
    
