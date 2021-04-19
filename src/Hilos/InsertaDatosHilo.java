@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import fases.Ciudad;
 import fases.Conexion;
 import fases.Pacientes;
+import fases.Principal;
 
 public class InsertaDatosHilo implements Runnable{
 	
@@ -49,7 +50,7 @@ public class InsertaDatosHilo implements Runnable{
         ps.setString(4, paciente.getTipo());
         ps.setBoolean(5, paciente.getInfectado());
         int resultado = ps.executeUpdate();
-
+        Principal.logger.info("Se ha insertado un nuevo usuario");
         if (resultado == 0) {
             System.out.println("NO se ha podido insertar");
             insertado = false;
